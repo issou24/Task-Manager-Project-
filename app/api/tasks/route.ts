@@ -48,21 +48,15 @@ export async function GET(req: Request) {
   try {
     const { userId } = auth();
 
-    console.log("début de la fx");
-
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized", status: 401 });
     }
-
-    console.log("useridr");
 
     const tasks = await prisma.task.findMany({
       where: {
         userId,
       },
     });
-
-    console.log("findmany");
 
     return NextResponse.json(tasks);
   } catch (error) {
