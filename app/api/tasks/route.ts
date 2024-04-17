@@ -48,6 +48,8 @@ export async function GET(req: Request) {
   try {
     const { userId } = auth();
 
+    console.log("test");
+
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized", status: 401 });
     }
