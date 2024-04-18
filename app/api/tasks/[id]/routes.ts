@@ -5,10 +5,13 @@ import { NextResponse } from "next/server";
 export async function DELETE(
   req: Request,
   { params }: { params: { id: string } }
+  console.log("ss");
 ) {
   try {
     const { userId } = auth();
     const { id } = params;
+
+    console.log("id");
 
     if (!userId) {
       return new NextResponse("Unauthorized", { status: 401 });
